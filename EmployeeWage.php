@@ -26,5 +26,5 @@ class EmployeeWages{
     }
 }
 $employeewage = new EmployeeWages();
-$employeewage->UcOne()
+$employeewage->UcTwo();
 ?>
