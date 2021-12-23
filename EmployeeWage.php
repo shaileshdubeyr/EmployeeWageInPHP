@@ -2,9 +2,6 @@
 class EmployeeWages{
     private $wagePerHour = 20;
     private $fullDayHour = 8;
-    public function __construct(){
-        echo "welcome TO Employee Wage";
-    }
 
     function UcOne(){
         $this->randomValue = rand(0,1);
@@ -29,4 +26,5 @@ class EmployeeWages{
     }
 }
 $employeewage = new EmployeeWages();
+$employeewage->UcOne()
 ?>
