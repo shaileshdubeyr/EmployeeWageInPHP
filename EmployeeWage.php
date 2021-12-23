@@ -29,20 +29,23 @@ class EmployeeWages{
             echo "Total Wage of the day is :- $oneDayWage";
         }
     }
-   public function UcThree(){
+   public function UcFour(){
         $oneDayWage = 0;
-        $employeeIsPresent = $this->UcOne();
-        if($employeeIsPresent == 1){
-            $oneDayWage = $this->wagePerHour * $this->fullDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage; 
-        }elseif($employeeIsPresent == 2){
-            $oneDayWage = $this->wagePerHour * $this->halfDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage;
-        }else{
-            echo "Total Wage of the day is :- $oneDayWage";
+        $employeeIs = $this->UcOne();
+        switch($employeeIs){
+            case 1:
+                $oneDayWage = $this->wagePerHour * $this->fullDayHour;
+                echo "Total Wage of the Day is :- ".$oneDayWage;
+                break; 
+            case 2:
+                $oneDayWage = $this->wagePerHour * $this->halfDayHour;
+                echo "Total Wage of the Day is :- ".$oneDayWage;
+                break;
+            default:
+                echo "Total Wage of the day is :- $oneDayWage";
         }
     }
 }
 $employeewage = new EmployeeWages();
-$employeewage->UcThree();
+$employeewage->UcFour();
 ?>
