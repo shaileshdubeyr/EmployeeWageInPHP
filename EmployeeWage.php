@@ -1,48 +1,43 @@
 <?php
 class EmployeeWages{
-    private $wagePerHour = 20;
-    private $fullDayHour = 8;
-    private $halfDayHour = 5;
-
-    function UcOne(){
-        $this->randomValue = rand(0,2);
-        if($this->randomValue == 1){
+    /**
+     * creating properties of the class
+     */
+    private $wageperHour = 20;
+    private $WorkingHours;
+    /**
+     * no argument passing to the function
+     * no return type
+     * checking employee wage for one day
+     */
+    public function employeeWagesForTheday(){
+        /**
+         * generating random value to check status of employee
+         */
+        $randomValue = rand(0,2);
+        if($randomValue == 1){
             echo "Employee is present\n";
-            return $this->randomValue;
-        }
-        elseif($this->randomValue == 2){
-            echo "Employee is present for half day\n";
-            return $this->randomValue;
+            $this->WorkingHours = 8;
+        }elseif($randomValue == 2){
+            echo "Employee is present for half Day\n";
+            $this->WorkingHours = 5;
         }else{
-            echo "Employee is absent\n";
-            return $this->randomValue;
+            echo "Employee is Absent\n";
+            $this->WorkingHours = 0;
         }
-    }
-
-    function UcTwo(){
-        $oneDayWage = 0;
-        $employeeIsPresent = $this->UcOne();
-        if($employeeIsPresent == 1){
-            $oneDayWage = $this->wagePerHour * $this->fullDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage; 
-        }else{
-            echo "Total Wage of the day is :- $oneDayWage";
-        }
-    }
-   public function UcThree(){
-        $oneDayWage = 0;
-        $employeeIsPresent = $this->UcOne();
-        if($employeeIsPresent == 1){
-            $oneDayWage = $this->wagePerHour * $this->fullDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage; 
-        }elseif($employeeIsPresent == 2){
-            $oneDayWage = $this->wagePerHour * $this->halfDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage;
-        }else{
-            echo "Total Wage of the day is :- $oneDayWage";
-        }
+        /**
+         * calculating total wage of employee
+         */
+        $totalWageIs = $this->wageperHour * $this->WorkingHours;
+        echo "total wage of employee for one day is $totalWageIs";
     }
 }
+/**
+ * creating object of the class
+ */
 $employeewage = new EmployeeWages();
-$employeewage->UcThree();
+/**
+ * calling methods of the class
+ */
+$employeewage->employeeWagesForTheday();
 ?>
