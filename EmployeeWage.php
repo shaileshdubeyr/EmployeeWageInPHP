@@ -1,30 +1,30 @@
 <?php
 class EmployeeWages{
-    private $wagePerHour = 20;
-    private $fullDayHour = 8;
-
-    function UcOne(){
-        $this->randomValue = rand(0,1);
-        if($this->randomValue == 1){
-            echo "Employee is present\n";
-            return $this->randomValue;
-        }else{
-            echo "Employee is absent\n";
-            return $this->randomValue;
-        }
+    /**
+     * no argumnet constructor
+     * in constructor calling static function
+     */
+    function __construct()
+    {
+        self::checkingEmployeePresentOrAbsent();
     }
 
-    function UcTwo(){
-        $oneDayWage = 0;
-        $employeeIsPresent = $this->UcOne();
-        if($employeeIsPresent == 1){
-            $oneDayWage = $this->wagePerHour * $this->fullDayHour;
-            echo "Total Wage of the Day is :- ".$oneDayWage; 
+    /**
+     * no argument function
+     * checking employee is present or absent
+     * no return type
+     */
+    static function checkingEmployeePresentOrAbsent(){
+        /**
+         * generatind random value
+         */
+        $randomValue = rand(0,2);
+        if($randomValue == 1){
+            echo "Employee is present\n";
         }else{
-            echo "Total Wage of the day is :- $oneDayWage";
+            echo "Employee is Absent\n";
         }
     }
 }
 $employeewage = new EmployeeWages();
-$employeewage->UcTwo();
 ?>
