@@ -14,19 +14,17 @@ class EmployeeWages{
         /**
          * generating random value to check status of employee
          */
+
         $randomValue = rand(0,2);
-        switch($randomValue){
-            case 1:
-                echo "Employee is present\n";
-                $this->workingHours = 8;
-                break;
-            case 2:
-                echo "Employee is present for half Day\n";
-                $this->workingHours = 5;
-                break;
-            default :
-                $this->workingHours = 0;
-                 break;
+        if($randomValue == 1){
+            echo "Employee is present\n";
+            $this->workingHours = 8;
+        }elseif($randomValue == 2){
+            echo "Employee is present for half Day\n";
+            $this->workingHours = 5;
+        }else{
+            echo "Employee is Absent\n";
+            $this->workingHours = 0;
         }
         /**
          * calculating total wage of employee
@@ -43,3 +41,4 @@ $employeewage = new EmployeeWages();
  * calling methods of the class
  */
 $employeewage->employeeWagesForTheday();
+?>
