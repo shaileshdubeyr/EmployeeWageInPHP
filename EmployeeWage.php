@@ -1,30 +1,40 @@
 <?php
 class EmployeeWages{
     /**
-     * no argumnet constructor
-     * in constructor calling static function
+     * creating properties of the class
      */
-    function __construct()
-    {
-        self::checkingEmployeePresentOrAbsent();
-    }
-
+    private $wageperHour;
+    private $WorkingHours = 8;
     /**
-     * no argument function
-     * checking employee is present or absent
+     * no argument passing to the function
      * no return type
+     * checking employee wage for one day
      */
-    static function checkingEmployeePresentOrAbsent(){
+    public function employeeWagesForTheday(){
         /**
-         * generatind random value
+         * generating random value to check status of employee
          */
-        $randomValue = rand(0,2);
+        $randomValue = rand(0,1);
         if($randomValue == 1){
             echo "Employee is present\n";
+            $this->wageperHour = 20;
         }else{
             echo "Employee is Absent\n";
+            $this->wageperHour = 0;
         }
+        /**
+         * calculating total wage of employee
+         */
+        $totalWageIs = $this->wageperHour * $this->WorkingHours;
+        echo "total wage of employee for one day is $totalWageIs";
     }
 }
+/**
+ * creating object of the class
+ */
 $employeewage = new EmployeeWages();
+/**
+ * calling methods of the class
+ */
+$employeewage->employeeWagesForTheday();
 ?>
