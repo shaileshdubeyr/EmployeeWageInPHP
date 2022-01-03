@@ -4,33 +4,31 @@ class EmployeeWages
     /**
      * creating properties of the class
      */
-    const WAGEPERHOUR = 20;
     private $workingHours;
-    private $workDayPerMonth = 0;
     /**
-     * no argument passing to the function
+     * passing three argument to the function
      * no return type
-     * checking employee wage for one day
+     * checking employee wage for month day
      */
-    public function employeeWagesForTheMonth()
+    private function employeeWagesForTheMonth($wageperHour,$workingHour,$workDayPerMonth,$cpmpanyName)
     {
         $hour = 0;
         /**
          * checking for the day and hour
          */
-        while ($this->workDayPerMonth != 20 && $hour <= 100) {
+        while ($workDayPerMonth != 20 && $workingHour <= 100) {
             $randomValue = rand(0, 2);
             $this->workDayPerMonth++;
             switch ($randomValue) {
                 case 1:
                     echo "Employee is present for full day\n";
                     $this->workingHours = 8;
-                    $hour += $this->workingHours;
+                    $workingHour += $this->workingHours;
                     break;
                 case 2:
                     echo "Employee is present for half Day\n";
                     $this->workingHours = 5;
-                    $hour += $this->workingHours;
+                    $workingHour += $this->workingHours;
                     break;
                 default:
                     $this->workingHours = 0;
@@ -38,10 +36,21 @@ class EmployeeWages
             }
         }
         //printing the day and hour
-        echo "the day is " . $this->workDayPerMonth . " The hour is " . $hour . "\n";
+        echo " The company is $cpmpanyName the working day is " . $this->workDayPerMonth . " The hour is " . $workingHour . "\n";
         //calculating total wage of employee
-        $totalWageIs = self::WAGEPERHOUR * $hour * $this->workDayPerMonth;
+        $totalWageIs = $wageperHour * $workingHour * $workDayPerMonth;
         echo "total wage of employee for one month is $totalWageIs";
+    }
+
+     function eachCompanyInput()
+    {
+        //Taking user input
+        $compnyName = readline("the name of the company is :- ");
+        $wagePerHour= readline("enter the wage per hour :- ");
+        $totalWorkingHours = readline("Enter the working hours :-  ");
+        $workDayPerMonth = readline("enter the work day for a month :- ");
+        //passing paramerter to calculate employee wage
+        $this->employeeWagesForTheMonth($wagePerHour,$totalWorkingHours,$workDayPerMonth,$compnyName);
     }
 }
 /**
@@ -51,4 +60,4 @@ $employeewage = new EmployeeWages();
 /**
  * calling methods of the class
  */
-$employeewage->employeeWagesForTheMonth();
+$employeewage->eachCompanyInput();
