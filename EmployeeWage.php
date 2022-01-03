@@ -4,60 +4,58 @@ class EmployeeWages
     /**
      * creating properties of the class
      */
+    private $company;
+    private $empWagePerHour;
+    private $workingHour;
+    private $workDaysPerMonth;
     private $workingHours;
     /**
      * passing three argument to the function
      * no return type
      * checking employee wage for month day
      */
-    private function employeeWagesForTheMonth($wageperHour,$workingHour,$workDayPerMonth,$cpmpanyName)
+    function __construct($empWagePerHour, $workDaysPerMonth, $workingHour, $company)
+    {
+        $this->empWagePerHour = $empWagePerHour;
+        $this->workDaysPerMonth = $workDaysPerMonth;
+        $this->workingHour = $workingHour;
+        $this->company = $company;
+    }
+    private function employeeWagesForTheMonth()
     {
         $hour = 0;
+        $workDayPerMonth = 0;
         /**
          * checking for the day and hour
          */
-        while ($workDayPerMonth != 20 && $workingHour <= 100) {
+        while ($workDayPerMonth != $this->workDaysPerMonth && $hour <= $this->workingHour) {
             $randomValue = rand(0, 2);
-            $this->workDayPerMonth++;
+            $workDayPerMonth++;
             switch ($randomValue) {
                 case 1:
                     echo "Employee is present for full day\n";
                     $this->workingHours = 8;
-                    $workingHour += $this->workingHours;
                     break;
                 case 2:
                     echo "Employee is present for half Day\n";
                     $this->workingHours = 5;
-                    $workingHour += $this->workingHours;
-                    break;
-                default:
-                    $this->workingHours = 0;
                     break;
             }
+            $hour += $this->workingHours;
         }
-        //printing the day and hour
-        echo " The company is $cpmpanyName the working day is " . $this->workDayPerMonth . " The hour is " . $workingHour . "\n";
         //calculating total wage of employee
-        $totalWageIs = $wageperHour * $workingHour * $workDayPerMonth;
-        echo "total wage of employee for one month is $totalWageIs";
+        $totalWageIs = $this->empWagePerHour * $hour * $workDayPerMonth;
+        echo "total wage of $this->company for one month is $totalWageIs";
     }
-
-     function eachCompanyInput()
+    function __destruct()
     {
-        //Taking user input
-        $compnyName = readline("the name of the company is :- ");
-        $wagePerHour= readline("enter the wage per hour :- ");
-        $totalWorkingHours = readline("Enter the working hours :-  ");
-        $workDayPerMonth = readline("enter the work day for a month :- ");
-        //passing paramerter to calculate employee wage
-        $this->employeeWagesForTheMonth($wagePerHour,$totalWorkingHours,$workDayPerMonth,$compnyName);
+        $this->employeeWagesForTheMonth();
     }
 }
 /**
  * creating object of the class
  */
-$employeewage = new EmployeeWages();
-/**
- * calling methods of the class
- */
-$employeewage->eachCompanyInput();
+$dmart = new EmployeeWages(readline("enter the wage per hour :- "),
+                           readline("working day per month :- "),
+                           readline("Enter total Working hours :- "),
+                           "Dmart");
