@@ -10,6 +10,7 @@ class EmployeeWages implements WageCalculator {
     private $workingHour;
     private $workDaysPerMonth;
     private $workingHours;
+    private $totalWageIs;
     //insilizing the class variable
     function __construct($company, $empWagePerHour, $workDaysPerMonth, $workingHour)
     {
@@ -47,8 +48,8 @@ class EmployeeWages implements WageCalculator {
             $hour += $this->workingHours;
         }
         //calculating total wage of employee
-        $totalWageIs = $this->empWagePerHour * $hour * $workDayPerMonth;
-        echo "total wage of $this->company for one month is $totalWageIs\n";
+        $this->totalWageIs = $this->empWagePerHour * $hour * $workDayPerMonth;
+        echo "total wage of $this->company for one month is $this->totalWageIs\n";
     }
 }
 
