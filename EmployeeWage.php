@@ -1,6 +1,7 @@
 <?php
-class EmployeeWages
-{
+include "C:/xampp/htdocs/PHPProjects/EmployeeWage/CompanyMethod.php";
+
+class EmployeeWages implements WageCalculator {
     /**
      * creating properties of the class
      */
@@ -23,7 +24,7 @@ class EmployeeWages
      * no return type
      * checking employee wage for month day
      */
-    private function employeeWagesForTheMonth()
+     function employeeWagesForTheMonth()
     {
         $hour = 0;
         $workDayPerMonth = 0;
