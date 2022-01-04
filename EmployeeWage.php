@@ -9,12 +9,8 @@ class EmployeeWages
     private $workingHour;
     private $workDaysPerMonth;
     private $workingHours;
-    /**
-     * passing three argument to the function
-     * no return type
-     * checking employee wage for month day
-     */
-    function __construct($company,$empWagePerHour, $workDaysPerMonth, $workingHour)
+    //insilizing the class variable
+    function __construct($company, $empWagePerHour, $workDaysPerMonth, $workingHour)
     {
         $this->empWagePerHour = $empWagePerHour;
         $this->workDaysPerMonth = $workDaysPerMonth;
@@ -22,6 +18,11 @@ class EmployeeWages
         $this->company = $company;
         $this->employeeWagesForTheMonth();
     }
+      /**
+     * passing three argument to the function
+     * no return type
+     * checking employee wage for month day
+     */
     private function employeeWagesForTheMonth()
     {
         $hour = 0;
@@ -49,25 +50,24 @@ class EmployeeWages
         echo "total wage of $this->company for one month is $totalWageIs\n";
     }
 }
-/**
- * creating object of the class
- */
+
 $employeeWageBuilder = [];
 $loop = true;
-while($loop){
-    $loop = readline("Do you want to add the company wages then type 'y' : - ");
-    if($loop == 'y'){
-        $companyObj = new EmployeeWages(readline("enter the  Company Name :- "),
-                                        readline("enter the wage per hour :- "),
-                                        readline("working day per month :- "),
-                                        readline("Enter total Working hours :- "));
-        $companykey = readline("Ente the key"); 
+while ($loop) {
+    $loop = readline("Do you want to add new company wages then type 'y' or enter any key to exit: - ");
+    if ($loop == 'y') {
+        //creating object of the class
+        $companyObj = new EmployeeWages(
+            readline("enter the  Company Name :- "),
+            readline("enter the wage per hour :- "),
+            readline("working day per month :- "),
+            readline("Enter total Working hours :- ")
+        );
+        $companykey = readline("Ente the key");
         $employeeWageBuilder[$companykey] = $companyObj;
-    }else {
-        $loop = false; 
-    } 
+    } else {
+        $loop = false;
+    }
 }
+//printing each object
 print_r($employeeWageBuilder);
-
-
-    
