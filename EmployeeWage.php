@@ -65,11 +65,12 @@ while ($loop) {
             readline("working day per month :- "),
             readline("Enter total Working hours :- ")
         );
-        $companykey = readline("Ente the key");
+        $companykey = readline("Ente the key to insert into Array :- ");
         $employeeWageBuilder[$companykey] = $companyObj;
     } else {
         $loop = false;
     }
 }
-//printing each object
-print_r($employeeWageBuilder);
+//printing each objecty
+$key = readline("Enter the Key  to print company wage :- ");
+print_r($employeeWageBuilder[$key]);
