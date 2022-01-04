@@ -1,7 +1,8 @@
 <?php
 include "C:/xampp/htdocs/PHPProjects/EmployeeWage/CompanyMethod.php";
 
-class EmployeeWages implements WageCalculator {
+class EmployeeWages implements WageCalculator
+{
     /**
      * creating properties of the class
      */
@@ -20,12 +21,12 @@ class EmployeeWages implements WageCalculator {
         $this->company = $company;
         $this->employeeWagesForTheMonth();
     }
-      /**
+    /**
      * passing three argument to the function
      * no return type
      * checking employee wage for month day
      */
-     function employeeWagesForTheMonth()
+    function employeeWagesForTheMonth()
     {
         $hour = 0;
         $workDayPerMonth = 0;
